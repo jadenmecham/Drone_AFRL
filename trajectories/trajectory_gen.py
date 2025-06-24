@@ -1,7 +1,7 @@
 # trajectory.py
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import cumtrapz
+from scipy.integrate import cumulative_trapezoid as cumtrapz
 
 class TrajectoryGenerator:
     """
@@ -448,7 +448,8 @@ class TrajectoryGenerator:
                     color=color, alpha=0.8, edgecolor=None)
 
         plt.legend()
-        plt.colorbar(sm, label='Time [s]')
+        # plt.colorbar(sm, label='Time [s]')
+        plt.colorbar(sm, label='Time [s]', ax=plt.gca())
         x_min, x_max = np.min(x), np.max(x)
         y_min, y_max = np.min(y), np.max(y)
         # plt.xlim(x_min - 1 , x_max + 1)
